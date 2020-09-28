@@ -3,7 +3,7 @@ ADD . /go/modbus_exporter
 WORKDIR /go/modbus_exporter
 RUN make build
 
-FROM ubuntu:latest
+FROM debian:10-slim
 WORKDIR /app
 COPY --from=builder /go/modbus_exporter/modbus_exporter .
 COPY --from=builder /go/modbus_exporter/modbus.yml .
